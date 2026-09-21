@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Royal Touch Salon | Premium Beauty & Salon Services in Kalyanpur, Kanpur</title>
+<meta name="description" content="Royal Touch Salon (रॉयल टच सैलून) – Premium haircut, hair spa, facial, makeup, bridal makeup & beauty treatments in Kalyanpur, Kanpur. Book your appointment today." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#C9A227;
+    --gold-light:#E8CC6A;
+    --gold-dark:#A8861B;
+    --gold-pale:#FBF6E6;
+    --white:#FFFFFF;
+    --ink:#2B2B2B;
+    --muted:#6B6B6B;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Poppins',sans-serif;color:var(--ink);background:var(--white);overflow-x:hidden}
+  .serif{font-family:'Playfair Display',serif}
+  .gold{color:var(--gold)}
+  .bg-gold{background:var(--gold)}
+  .gold-text{
+    background:linear-gradient(120deg,var(--gold-dark),var(--gold-light) 50%,var(--gold-dark));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .gold-grad{background:linear-gradient(135deg,var(--gold-dark),var(--gold) 45%,var(--gold-light) 75%,var(--gold))}
+  .btn-gold{
+    background:linear-gradient(135deg,var(--gold-dark),var(--gold) 50%,var(--gold-light));
+    color:#fff;font-weight:500;letter-spacing:.04em;
+    box-shadow:0 10px 25px -8px rgba(201,162,39,.6);
+    transition:all .35s cubic-bezier(.22,1,.36,1);
+    position:relative;overflow:hidden;
+  }
+  .btn-gold::after{content:'';position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .6s}
+  .btn-gold:hover::after{left:130%}
+  .btn-gold:hover{transform:translateY(-3px);box-shadow:0 16px 32px -10px rgba(201,162,39,.75)}
+  .btn-outline{
+    border:1.5px solid var(--gold);color:var(--gold-dark);font-weight:500;letter-spacing:.04em;
+    transition:all .35s cubic-bezier(.22,1,.36,1);background:rgba(255,255,255,.7);backdrop-filter:blur(4px)
+  }
+  .btn-outline:hover{background:var(--gold);color:#fff;transform:translateY(-3px);box-shadow:0 14px 28px -10px rgba(201,162,39,.6)}
+  .gold-border{border:1px solid rgba(201,162,39,.35)}
+  .card{
+    background:#fff;border:1px solid rgba(201,162,39,.25);border-radius:1.25rem;
+    box-shadow:0 8px 30px -14px rgba(201,162,39,.25);
+    transition:all .45s cubic-bezier(.22,1,.36,1);position:relative;overflow:hidden
+  }
+  .card::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,246,230,0),rgba(251,246,230,.9));opacity:0;transition:opacity .45s;z-index:0}
+  .card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 24px 50px -18px rgba(201,162,39,.45)}
+  .card:hover::before{opacity:1}
+  .card>*{position:relative;z-index:1}
+  .icon-ring{
+    width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    border:1.5px solid var(--gold);background:var(--gold-pale);color:var(--gold-dark);
+    transition:all .45s cubic-bezier(.22,1,.36,1)
+  }
+  .card:hover .icon-ring{background:linear-gradient(135deg,var(--gold-dark),var(--gold-light));color:#fff;transform:rotate(-8deg) scale(1.06)}
+  .divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1rem auto}
+  .divider.left{margin-left:0}
+  .eyebrow{letter-spacing:.3em;text-transform:uppercase;font-size:.72rem;color:var(--gold-dark);font-weight:500}
+
+  /* Reveal animations */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
+
+  /* Navbar */
+  #nav{transition:all .4s ease;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,162,39,.15)}
+  #nav.scrolled{box-shadow:0 10px 30px -14px rgba(201,162,39,.35);background:rgba(255,255,255,.96)}
+  .nav-link{position:relative;color:var(--ink);font-weight:400;font-size:.92rem;letter-spacing:.02em;transition:color .3s}
+  .nav-link::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1.5px;background:var(--gold);transition:width .35s}
+  .nav-link:hover,.nav-link.active{color:var(--gold-dark)}
+  .nav-link:hover::after,.nav-link.active::after{width:100%}
+  #mobileMenu{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.22,1,.36,1)}
+  #mobileMenu.open{max-height:420px}
+  .burger span{display:block;width:26px;height:2px;background:var(--gold-dark);margin:5px 0;transition:.35s}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  /* Hero */
+  .hero-img{animation:kenburns 18s ease-in-out infinite alternate}
+  @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.08)}}
+  .hero-overlay{background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.88) 40%,rgba(255,255,255,.35) 70%,rgba(255,255,255,.1) 100%)}
+  @media (max-width:1023px){.hero-overlay{background:linear-gradient(180deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.85) 55%,rgba(255,255,255,.55) 100%)}}
+  .fade-up{animation:fadeUp 1.1s cubic-bezier(.22,1,.36,1) both}
+  .fade-up.d1{animation-delay:.2s}.fade-up.d2{animation-delay:.4s}.fade-up.d3{animation-delay:.6s}.fade-up.d4{animation-delay:.8s}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+  .float{animation:float 6s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  .sparkle{position:absolute;border-radius:50%;background:var(--gold);opacity:.35;animation:twinkle 4s ease-in-out infinite}
+  @keyframes twinkle{0%,100%{opacity:.15;transform:scale(.8)}50%{opacity:.6;transform:scale(1.2)}}
+  .scroll-hint{animation:bob 2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+  /* Gallery */
+  .g-item{position:relative;overflow:hidden;border-radius:1rem;border:1px solid rgba(201,162,39,.25);cursor:pointer;background:var(--gold-pale)}
+  .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.22,1,.36,1);display:block}
+  .g-item:hover img{transform:scale(1.08)}
+  .g-cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(60,45,5,.75));opacity:0;transition:opacity .5s}
+  .g-item:hover .g-cap{opacity:1}
+  .g-cap span{color:#fff;transform:translateY(12px);transition:transform .5s}
+  .g-item:hover .g-cap span{transform:none}
+  .g-frame{position:absolute;inset:12px;border:1px solid rgba(255,255,255,.7);border-radius:.6rem;opacity:0;transition:opacity .5s;pointer-events:none}
+  .g-item:hover .g-frame{opacity:1}
+
+  /* Form */
+  .input{
+    width:100%;padding:.9rem 1.1rem;border-radius:.75rem;border:1px solid rgba(201,162,39,.35);background:#fff;
+    font-family:inherit;font-size:.95rem;color:var(--ink);outline:none;transition:all .3s
+  }
+  .input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,162,39,.15)}
+  .input::placeholder{color:#a9a9a9}
+  label{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-dark);font-weight:500}
+
+  /* Lightbox */
+  #lightbox{position:fixed;inset:0;background:rgba(20,15,0,.92);display:flex;align-items:center;justify-content:center;z-index:100;opacity:0;pointer-events:none;transition:opacity .4s}
+  #lightbox.open{opacity:1;pointer-events:auto}
+  #lightbox img{max-width:92vw;max-height:85vh;border-radius:1rem;border:2px solid var(--gold);box-shadow:0 30px 80px rgba(0,0,0,.6);transform:scale(.9);transition:transform .4s}
+  #lightbox.open img{transform:scale(1)}
+
+  /* WhatsApp float */
+  .wa-float{position:fixed;right:1.25rem;bottom:1.25rem;z-index:60;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -8px rgba(201,162,39,.7);animation:pulse 2.5s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,162,39,.55)}70%{box-shadow:0 0 0 18px rgba(201,162,39,0)}100%{box-shadow:0 0 0 0 rgba(201,162,39,0)}}
+  #toTop{position:fixed;right:1.25rem;bottom:5.5rem;z-index:60;opacity:0;pointer-events:none;transition:.4s}
+  #toTop.show{opacity:1;pointer-events:auto}
+
+  .stat{border-left:1px solid rgba(201,162,39,.35)}
+  .stat:first-child{border-left:0}
+  .pattern{background-image:radial-gradient(rgba(201,162,39,.12) 1px,transparent 1px);background-size:22px 22px}
+  .toast{position:fixed;left:50%;bottom:2rem;transform:translate(-50%,30px);background:#fff;border:1px solid var(--gold);color:var(--ink);padding:.9rem 1.4rem;border-radius:.9rem;box-shadow:0 20px 50px -15px rgba(201,162,39,.5);opacity:0;transition:.4s;z-index:90;font-size:.9rem}
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+  .social{width:40px;height:40px;border-radius:50%;border:1px solid rgba(201,162,39,.5);display:flex;align-items:center;justify-content:center;color:var(--gold-dark);transition:.35s}
+  .social:hover{background:var(--gold);color:#fff;transform:translateY(-4px);box-shadow:0 10px 20px -8px rgba(201,162,39,.6)}
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header id="nav" class="fixed top-0 inset-x-0 z-50">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="flex items-center justify-between h-[74px]">
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-full gold-grad flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-500">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2.5-9 4 5L12 6l2.5 7 4-5L21 17H3z"/><path d="M4 20h16"/></svg>
+        </div>
+        <div class="leading-tight">
+          <div class="serif text-xl font-semibold gold-text tracking-wide">Royal Touch Salon</div>
+          <div class="text-[10px] tracking-[.25em] uppercase text-[#A8861B]">रॉयल टच सैलून</div>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-9">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#appointment" class="btn-gold hidden sm:inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Book Appointment
+        </a>
+        <button id="burger" class="burger lg:hidden p-2" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden bg-white/95 border-t border-[#C9A227]/20">
+    <div class="px-6 py-4 flex flex-col gap-1">
+      <a href="#home" class="mob-link py-3 border-b border-[#C9A227]/15 text-[#2B2B2B] hover:text-[#A8861B]">Home</a>
+      <a href="#about" class="mob-link py-3 border-b border-[#C9A227]/15 text-[#2B2B2B] hover:text-[#A8861B]">About</a>
+      <a href="#services" class="mob-link py-3 border-b border-[#C9A227]/15 text-[#2B2B2B] hover:text-[#A8861B]">Services</a>
+      <a href="#gallery" class="mob-link py-3 border-b border-[#C9A227]/15 text-[#2B2B2B] hover:text-[#A8861B]">Gallery</a>
+      <a href="#contact" class="mob-link py-3 border-b border-[#C9A227]/15 text-[#2B2B2B] hover:text-[#A8861B]">Contact</a>
+      <a href="#appointment" class="mob-link btn-gold mt-4 mb-2 text-center py-3 rounded-full text-sm">Book Appointment</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="relative min-h-screen flex items-center pt-[74px] overflow-hidden">
+  <div class="absolute inset-0">
+    <img class="hero-img w-full h-full object-cover object-[70%_center]" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=2000&q=80" alt="Luxury salon interior" onerror="this.style.display='none'">
+    <div class="hero-overlay absolute inset-0"></div>
+  </div>
+  <div class="sparkle" style="width:8px;height:8px;top:22%;left:12%;animation-delay:0s"></div>
+  <div class="sparkle" style="width:5px;height:5px;top:65%;left:30%;animation-delay:1.2s"></div>
+  <div class="sparkle" style="width:10px;height:10px;top:35%;left:55%;animation-delay:2.1s"></div>
+  <div class="sparkle" style="width:6px;height:6px;top:80%;left:70%;animation-delay:.6s"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-8 py-20 w-full">
+    <div class="max-w-2xl">
+      <div class="fade-up flex items-center gap-3 mb-6">
+        <span class="w-12 h-px bg-[#C9A227]"></span>
+        <span class="eyebrow">Kalyanpur · Kanpur · Est. Luxury</span>
+      </div>
+      <h1 class="fade-up d1 serif text-5xl sm:text-6xl lg:text-7xl leading-[1.05] font-semibold text-[#2B2B2B]">
+        Your Beauty,<br><span class="gold-text italic">Our Royal Touch</span>
+      </h1>
+      <p class="fade-up d2 mt-6 text-lg text-[#555] font-light leading-relaxed max-w-lg">
+        Premium Beauty &amp; Salon Services in Kalyanpur, Kanpur. Experience elegance, expertise and personalised care in every visit.
+      </p>
+      <div class="fade-up d3 mt-9 flex flex-col sm:flex-row gap-4">
+        <a href="#appointment" class="btn-gold inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full">
+          Book Appointment
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#services" class="btn-outline inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full">View Services</a>
+      </div>
+      <div class="fade-up d4 mt-12 grid grid-cols-3 max-w-md">
+        <div class="stat px-4 first:pl-0"><div class="serif text-3xl font-semibold gold-text">10+</div><div class="text-xs tracking-wider uppercase text-[#777] mt-1">Years</div></div>
+        <div class="stat px-4"><div class="serif text-3xl font-semibold gold-text">5k+</div><div class="text-xs tracking-wider uppercase text-[#777] mt-1">Happy Clients</div></div>
+        <div class="stat px-4"><div class="serif text-3xl font-semibold gold-text">4.9★</div><div class="text-xs tracking-wider uppercase text-[#777] mt-1">Rating</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hidden lg:block absolute right-10 bottom-14 float">
+    <div class="bg-white/90 backdrop-blur gold-border rounded-2xl p-5 shadow-xl w-64">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-full gold-grad flex items-center justify-center text-white">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 6.9L21 9.3l-5.2 4.4L17.5 21 12 17.3 6.5 21l1.7-7.3L3 9.3l6.6-.4z"/></svg>
+        </div>
+        <div><div class="text-sm font-medium">Premium Care</div><div class="text-xs text-[#777]">Trusted by Kanpur's finest</div></div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#about" class="scroll-hint absolute bottom-6 left-1/2 -translate-x-1/2 text-[#A8861B] hidden md:block" aria-label="Scroll down">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="py-24 lg:py-32 relative">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+    <div class="reveal relative">
+      <div class="absolute -top-6 -left-6 w-40 h-40 border border-[#C9A227]/40 rounded-3xl hidden md:block"></div>
+      <div class="absolute -bottom-6 -right-6 w-48 h-48 pattern rounded-3xl hidden md:block"></div>
+      <div class="relative rounded-3xl overflow-hidden shadow-2xl gold-border">
+        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=80" alt="Royal Touch Salon interior" class="w-full h-[420px] lg:h-[540px] object-cover" loading="lazy">
+      </div>
+      <div class="absolute bottom-6 -right-2 md:right-8 bg-white gold-border rounded-2xl px-6 py-4 shadow-xl">
+        <div class="serif text-3xl gold-text font-semibold">Since 2014</div>
+        <div class="text-xs tracking-widest uppercase text-[#777]">Serving Kanpur with elegance</div>
+      </div>
+    </div>
+    <div>
+      <div class="reveal eyebrow">Who We Are</div>
+      <h2 class="reveal d1 serif text-4xl lg:text-5xl font-semibold mt-3 leading-tight">About <span class="gold-text">Royal Touch Salon</span></h2>
+      <div class="reveal d1 divider left"></div>
+      <p class="reveal d2 text-[#555] leading-relaxed font-light mt-4">
+        Royal Touch Salon is Kalyanpur's destination for refined beauty and grooming. We provide quality beauty and salon services in a comfortable, stylish and welcoming environment – where every guest is treated like royalty.
+      </p>
+      <p class="reveal d3 text-[#555] leading-relaxed font-light mt-4">
+        From precision haircuts and nourishing hair spas to radiant facials and flawless bridal makeup, our skilled professionals use premium products and hygienic practices to ensure you leave feeling confident, relaxed and beautiful.
+      </p>
+      <ul class="reveal d3 mt-7 grid sm:grid-cols-2 gap-3 text-sm">
+        <li class="flex items-center gap-3"><span class="w-6 h-6 rounded-full gold-grad flex items-center justify-center text-white text-xs">✓</span>Certified beauty experts</li>
+        <li class="flex items-center gap-3"><span class="w-6 h-6 rounded-full gold-grad flex items-center justify-center text-white text-xs">✓</span>Premium branded products</li>
+        <li class="flex items-center gap-3"><span class="w-6 h-6 rounded-full gold-grad flex items-center justify-center text-white text-xs">✓</span>Hygienic &amp; sanitised tools</li>
+        <li class="flex items-center gap-3"><span class="w-6 h-6 rounded-full gold-grad flex items-center justify-center text-white text-xs">✓</span>Personalised consultations</li>
+      </ul>
+      <div class="reveal d4 mt-9 flex flex-col sm:flex-row gap-4">
+        <a href="#appointment" class="btn-gold inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm">Book Your Visit</a>
+        <a href="tel:+919336051388" class="btn-outline inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          093360 51388
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="py-24 lg:py-32 bg-[#FBF6E6]/60 relative">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <div class="reveal eyebrow">What We Offer</div>
+      <h2 class="reveal d1 serif text-4xl lg:text-5xl font-semibold mt-3">Our <span class="gold-text">Signature Services</span></h2>
+      <div class="reveal d1 divider"></div>
+      <p class="reveal d2 text-[#555] font-light">Indulge in a curated menu of premium beauty and grooming services, crafted to enhance your natural radiance.</p>
+    </div>
+
+    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card -->
+      <div class="card reveal p-7">
+        <div class="icon-ring mb-6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9M14.5 14.5L20 20M8.1 8.1L12 12"/></svg></div>
+        <h3 class="serif text-xl font-semibold">Haircut &amp; Hair Styling</h3>
+        <p class="text-sm text-[#666] font-light mt-3 leading-relaxed">Precision cuts and trend-led styling tailored to your face shape and personality.</p>
+        <button data-service="Haircut & Hair Styling" class="book-btn mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#A8861B] hover:gap-3 transition-all">Book Now <span>→</span></button>
+      </div>
+      <div class="card reveal d1 p-7">
+        <div class="icon-ring mb-6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 4-6 6.5-6 10a6 6 0 0 0 12 0c0-3.5-3-6-6-10z"/><path d="M12 17a2.5 2.5 0 0 0 2.5-2.5"/></svg></div>
+        <h3 class="serif text-xl font-semibold">Hair Spa</h3>
+        <p class="text-sm text-[#666] font-light mt-3 leading-relaxed">Deep-nourishing spa rituals that restore shine, softness and scalp health.</p>
+        <button data-service="Hair Spa" class="book-btn mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#A8861B] hover:gap-3 transition-all">Book Now <span>→</span></button>
+      </div>
+      <div class="card reveal d2 p-7">
+        <div class="icon-ring mb-6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3 class="serif text-xl font-semibold">Hair Treatment</h3>
+        <p class="text-sm text-[#666] font-light mt-3 leading-relaxed">Keratin, smoothening and repair treatments for frizz-free, healthy hair.</p>
+        <button data-service="Hair Treatment" class="book-btn mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#A8861B] hover:gap-3 transition-all">Book Now <span>→</span></button>
+      </div>
+      <div class="card reveal d3 p-7">
+        <div class="icon-ring mb-6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M6 21c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M9 9h.01M15 9h.01"/></svg></div>
+        <h3 class="serif text-xl font-semibold">Facial</h3>
+        <p class="text-sm text-[#666] font-light mt-3 leading-relaxed">Luxurious facials for glowing, hydrated and rejuvenated skin.</p>
+        <button data-service="Facial" class="book-btn mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#A8861B] hover:gap-3 transition-all">Book Now <span>→</span></button>
+      </div>
+      <div class="card reveal p-7">
+        <div class="icon-ring mb-6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3l7 7-9 9-7-7 9-9z"/><path d="M5 12l-2 9 9-2"/><path d="M11 6l7 7"/></svg></div>
+        <h3 class="serif text-xl font-semibold">Makeup</h3>
+        <p class="text-sm text-[#666] font-light mt-3 leading-relaxed">Party, engagement and event makeup with a flawless, long-lasting finish.</p>
+        <button data-service="Makeup" class="book-btn mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#A8861B] hover:gap-3 transition-all">Book Now <span>→</span></button>
+      </div>
+      <div class="card reveal d1 p-7">
+        <div class="icon-ring mb-6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2.5-9 4 5L12 6l2.5 7 4-5L21 17H3z"/><path d="M4 20h16"/></svg></div>
+        <h3 class="serif text-xl font-semibold">Bridal Makeup</h3>
+        <p class="text-sm text-[#666] font-light mt-3 leading-relaxed">Signature bridal looks with HD &amp; airbrush artistry for your royal day.</p>
+        <button data-service="Bridal Makeup" class="book-btn mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#A8861B] hover:gap-3 transition-all">Book Now <span>→</span></button>
+      </div>
+      <div class="card reveal d2 p-7">
+        <div class="icon-ring mb-6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V6a2 2 0 1 1 4 0v5M12 11V4a2 2 0 1 1 4 0v8M16 10a2 2 0 1 1 4 0v4a7 7 0 0 1-7 7h-2a7 7 0 0 1-7-7v-3a2 2 0 1 1 4 0"/></svg></div>
+        <h3 class="serif text-xl font-semibold">Manicure &amp; Pedicure</h3>
+        <p class="text-sm text-[#666] font-light mt-3 leading-relaxed">Pampering hand and foot care with polished, elegant nail finishes.</p>
+        <button data-service="Manicure & Pedicure" class="book-btn mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#A8861B] hover:gap-3 transition-all">Book Now <span>→</span></button>
+      </div>
+      <div class="card reveal d3 p-7">
+        <div class="icon-ring mb-6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.9L21 9.3l-5.2 4.4L17.5 21 12 17.3 6.5 21l1.7-7.3L3 9.3l6.6-.4z"/></svg></div>
+        <h3 class="serif text-xl font-semibold">Beauty Treatments</h3>
+        <p class="text-sm text-[#666] font-light mt-3 leading-relaxed">Waxing, threading, bleach, de-tan and more – complete beauty care.</p>
+        <button data-service="Beauty Treatments" class="book-btn mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#A8861B] hover:gap-3 transition-all">Book Now <span>→</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section id="gallery" class="py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <div class="reveal eyebrow">Our Work</div>
+      <h2 class="reveal d1 serif text-4xl lg:text-5xl font-semibold mt-3">A Glimpse of <span class="gold-text">Royal Elegance</span></h2>
+      <div class="reveal d1 divider"></div>
+      <p class="reveal d2 text-[#555] font-light">Step inside our world of beauty – where artistry meets luxury.</p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 auto-rows-[180px] md:auto-rows-[220px]">
+      <div class="g-item reveal col-span-2 row-span-2" data-full="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80" alt="Salon interior" loading="lazy">
+        <div class="g-frame"></div><div class="g-cap"><span class="eyebrow !text-[#E8CC6A]">Interior</span><span class="serif text-xl">Salon Interior</span></div>
+      </div>
+      <div class="g-item reveal d1" data-full="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1600&q=80">
+        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80" alt="Hair styling" loading="lazy">
+        <div class="g-frame"></div><div class="g-cap"><span class="eyebrow !text-[#E8CC6A]">Hair</span><span class="serif text-lg">Hair Styling</span></div>
+      </div>
+      <div class="g-item reveal d2" data-full="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1600&q=80">
+        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=80" alt="Makeup" loading="lazy">
+        <div class="g-frame"></div><div class="g-cap"><span class="eyebrow !text-[#E8CC6A]">Glam</span><span class="serif text-lg">Makeup</span></div>
+      </div>
+      <div class="g-item reveal d1" data-full="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1600&q=80">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Facial treatment" loading="lazy">
+        <div class="g-frame"></div><div class="g-cap"><span class="eyebrow !text-[#E8CC6A]">Skin</span><span class="serif text-lg">Facial &amp; Beauty</span></div>
+      </div>
+      <div class="g-item reveal d2" data-full="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1600&q=80">
+        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Bridal makeup" loading="lazy">
+        <div class="g-frame"></div><div class="g-cap"><span class="eyebrow !text-[#E8CC6A]">Bridal</span><span class="serif text-lg">Bridal Makeup</span></div>
+      </div>
+      <div class="g-item reveal d3 col-span-2 md:col-span-2" data-full="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1600&q=80">
+        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=80" alt="Professional salon atmosphere" loading="lazy">
+        <div class="g-frame"></div><div class="g-cap"><span class="eyebrow !text-[#E8CC6A]">Ambience</span><span class="serif text-lg">Professional Salon Atmosphere</span></div>
+      </div>
+      <div class="g-item reveal d3 col-span-2" data-full="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1600&q=80">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1200&q=80" alt="Manicure" loading="lazy">
+        <div class="g-frame"></div><div class="g-cap"><span class="eyebrow !text-[#E8CC6A]">Nails</span><span class="serif text-lg">Manicure &amp; Pedicure</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section id="why" class="py-24 lg:py-32 relative pattern">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <div class="reveal eyebrow">The Royal Difference</div>
+      <h2 class="reveal d1 serif text-4xl lg:text-5xl font-semibold mt-3">Why Choose <span class="gold-text">Royal Touch</span></h2>
+      <div class="reveal d1 divider"></div>
+      <p class="reveal d2 text-[#555] font-light">Excellence in every detail – because you deserve nothing less than royal treatment.</p>
+    </div>
+    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card reveal p-8 text-center">
+        <div class="icon-ring mx-auto mb-6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15l-2 5 2-1 2 1-2-5z"/><circle cx="12" cy="9" r="6"/><path d="M9.5 9l1.5 1.5L14.5 7"/></svg></div>
+        <h3 class="serif text-xl font-semibold">Professional Service</h3>
+        <p class="text-sm text-[#666] font-light mt-3 leading-relaxed">Trained, certified experts delivering consistent, world-class results every time.</p>
+      </div>
+      <div class="card reveal d1 p-8 text-center">
+        <div class="icon-ring mx-auto mb-6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9l4-6z"/><path d="M2 9h20M12 21L8 9l4-6 4 6-4 12"/></svg></div>
+        <h3 class="serif text-xl font-semibold">Premium Experience</h3>
+        <p class="text-sm text-[#666] font-light mt-3 leading-relaxed">Luxurious ambience, top-tier products and personalised attention from start to finish.</p>
+      </div>
+      <div class="card reveal d2 p-8 text-center">
+        <div class="icon-ring mx-auto mb-6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3 class="serif text-xl font-semibold">Hygienic Environment</h3>
+        <p class="text-sm text-[#666] font-light mt-3 leading-relaxed">Sanitised tools, fresh linens and strict hygiene protocols for your complete safety.</p>
+      </div>
+      <div class="card reveal d3 p-8 text-center">
+        <div class="icon-ring mx-auto mb-6"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <h3 class="serif text-xl font-semibold">Customer Satisfaction</h3>
+        <p class="text-sm text-[#666] font-light mt-3 leading-relaxed">Thousands of delighted clients and a 4.9★ rating that speaks for itself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPOINTMENT ================= -->
+<section id="appointment" class="py-24 lg:py-32 bg-[#FBF6E6]/60">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-5 gap-12 items-stretch">
+    <div class="lg:col-span-2 reveal relative rounded-3xl overflow-hidden gold-border shadow-2xl min-h-[380px]">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80" alt="Book your appointment" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#3a2c05]/85 via-[#3a2c05]/30 to-transparent"></div>
+      <div class="relative h-full flex flex-col justify-end p-8 text-white">
+        <div class="eyebrow !text-[#E8CC6A]">Reserve Your Moment</div>
+        <h3 class="serif text-3xl font-semibold mt-2">Book Your Royal Experience</h3>
+        <p class="text-sm font-light mt-3 text-white/85">Fill in the form and we'll confirm your appointment on WhatsApp or by call.</p>
+        <div class="mt-6 flex flex-wrap gap-4 text-sm">
+          <div class="flex items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8CC6A" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Mon–Sun · 10 AM – 8 PM</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-3 reveal d1 bg-white rounded-3xl gold-border shadow-xl p-7 md:p-10">
+      <div class="eyebrow">Appointment</div>
+      <h2 class="serif text-3xl md:text-4xl font-semibold mt-2">Book an <span class="gold-text">Appointment</span></h2>
+      <form id="bookingForm" class="mt-8 grid md:grid-cols-2 gap-5" novalidate>
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" class="input mt-2" placeholder="Your full name" required>
+        </div>
+        <div>
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="tel" class="input mt-2" placeholder="+91 XXXXX XXXXX" required pattern="[0-9+\s-]{10,15}">
+        </div>
+        <div>
+          <label for="service">Select Service</label>
+          <select id="service" name="service" class="input mt-2" required>
+            <option value="">Choose a service</option>
+            <option>Haircut & Hair Styling</option>
+            <option>Hair Spa</option>
+            <option>Hair Treatment</option>
+            <option>Facial</option>
+            <option>Makeup</option>
+            <option>Bridal Makeup</option>
+            <option>Manicure & Pedicure</option>
+            <option>Beauty Treatments</option>
+          </select>
+        </div>
+        <div>
+          <label for="date">Preferred Date</label>
+          <input id="date" name="date" type="date" class="input mt-2" required>
+        </div>
+        <div>
+          <label for="time">Preferred Time</label>
+          <input id="time" name="time" type="time" class="input mt-2" required>
+        </div>
+        <div class="md:col-span-2">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="3" class="input mt-2 resize-none" placeholder="Any special requests or notes..."></textarea>
+        </div>
+        <div class="md:col-span-2 flex flex-col sm:flex-row gap-4 pt-2">
+          <button type="submit" class="btn-gold flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            Book Appointment
+          </button>
+          <a id="waBook" href="https://wa.me/919336051388?text=Hello%20Royal%20Touch%20Salon%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="btn-outline flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+            Book on WhatsApp
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <div class="reveal eyebrow">Visit Us</div>
+      <h2 class="reveal d1 serif text-4xl lg:text-5xl font-semibold mt-3">Get in <span class="gold-text">Touch</span></h2>
+      <div class="reveal d1 divider"></div>
+      <p class="reveal d2 text-[#555] font-light">We'd love to welcome you. Find us in the heart of Kalyanpur, Kanpur.</p>
+    </div>
+
+    <div class="mt-16 grid lg:grid-cols-2 gap-8">
+      <div class="reveal card p-8 md:p-10 !overflow-visible">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full gold-grad flex items-center justify-center shadow-md">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2.5-9 4 5L12 6l2.5 7 4-5L21 17H3z"/><path d="M4 20h16"/></svg>
+          </div>
+          <div>
+            <h3 class="serif text-2xl font-semibold">Royal Touch Salon</h3>
+            <div class="text-xs tracking-[.2em] uppercase text-[#A8861B]">रॉयल टच सैलून</div>
+          </div>
+        </div>
+        <div class="mt-8 space-y-6">
+          <div class="flex gap-4">
+            <div class="icon-ring !w-11 !h-11 flex-shrink-0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <div class="text-xs tracking-widest uppercase text-[#A8861B] font-medium">Address</div>
+              <p class="text-[#555] font-light text-sm mt-1 leading-relaxed">Gulmohar Residency, Plot No. 1, New Azad Nagar, near Anandeshwar Construction, Kalyanpur, Kanpur, Uttar Pradesh – 208017</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="icon-ring !w-11 !h-11 flex-shrink-0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div>
+            <div>
+              <div class="text-xs tracking-widest uppercase text-[#A8861B] font-medium">Phone</div>
+              <a href="tel:+919336051388" class="serif text-2xl font-semibold text-[#2B2B2B] hover:text-[#A8861B] transition-colors">093360 51388</a>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="icon-ring !w-11 !h-11 flex-shrink-0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div>
+              <div class="text-xs tracking-widest uppercase text-[#A8861B] font-medium">Opening Hours</div>
+              <p class="text-[#555] font-light text-sm mt-1">Monday – Sunday · 10:00 AM – 8:00 PM</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-9 grid sm:grid-cols-3 gap-3">
+          <a href="tel:+919336051388" class="btn-gold inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call Now
+          </a>
+          <a href="https://wa.me/919336051388?text=Hello%20Royal%20Touch%20Salon%2C%20I%20have%20a%20query." target="_blank" rel="noopener" class="btn-outline inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>WhatsApp
+          </a>
+          <a href="https://maps.app.goo.gl/gdBMZiVU3CUH4xZw7" target="_blank" rel="noopener" class="btn-outline inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Google Maps
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal d1 relative rounded-3xl overflow-hidden gold-border shadow-xl min-h-[380px] bg-[#FBF6E6]">
+        <iframe title="Royal Touch Salon Location" class="absolute inset-0 w-full h-full" style="border:0;filter:sepia(.35) saturate(.6) contrast(1.05)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+          src="https://www.google.com/maps?q=Gulmohar+Residency,+New+Azad+Nagar,+Kalyanpur,+Kanpur,+Uttar+Pradesh+208017&output=embed"></iframe>
+        <a href="https://maps.app.goo.gl/gdBMZiVU3CUH4xZw7" target="_blank" rel="noopener" class="absolute bottom-5 left-5 right-5 sm:right-auto btn-gold inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm">
+          Open in Google Maps
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="relative border-t border-[#C9A227]/25 bg-white">
+  <div class="h-1 gold-grad"></div>
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-full gold-grad flex items-center justify-center shadow-md">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2.5-9 4 5L12 6l2.5 7 4-5L21 17H3z"/><path d="M4 20h16"/></svg>
+        </div>
+        <div>
+          <div class="serif text-xl font-semibold gold-text">Royal Touch Salon</div>
+          <div class="text-[10px] tracking-[.25em] uppercase text-[#A8861B]">रॉयल टच सैलून</div>
+        </div>
+      </div>
+      <p class="text-sm text-[#666] font-light mt-5 leading-relaxed">Premium beauty &amp; salon services in Kalyanpur, Kanpur. Where elegance meets expertise.</p>
+      <div class="flex gap-3 mt-6">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener" class="social" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener" class="social" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H6v4h3v7h4v-7h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg></a>
+        <a href="https://wa.me/919336051388" target="_blank" rel="noopener" class="social" aria-label="WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg></a>
+        <a href="https://www.youtube.com" target="_blank" rel="noopener" class="social" aria-label="YouTube"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.3-1C16.5 3.7 12 3.7 12 3.7s-4.5 0-7.8.2c-.5.1-1.5.1-2.3 1C1.2 5.6 1 7.2 1 7.2S.8 9 .8 10.9v1.8c0 1.9.2 3.7.2 3.7s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.8.2 7.6.2 7.6.2s4.5 0 7.8-.2c.5-.1 1.5-.1 2.3-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.7v-1.8C23.2 9 23 7.2 23 7.2zM9.7 14.8V8.3l6.1 3.3-6.1 3.2z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4 class="serif text-lg font-semibold gold">Quick Links</h4>
+      <div class="w-10 h-px bg-[#C9A227] mt-2 mb-5"></div>
+      <ul class="space-y-3 text-sm text-[#666]">
+        <li><a href="#home" class="hover:text-[#A8861B] transition-colors">Home</a></li>
+        <li><a href="#about" class="hover:text-[#A8861B] transition-colors">About Us</a></li>
+        <li><a href="#services" class="hover:text-[#A8861B] transition-colors">Services</a></li>
+        <li><a href="#gallery" class="hover:text-[#A8861B] transition-colors">Gallery</a></li>
+        <li><a href="#appointment" class="hover:text-[#A8861B] transition-colors">Book Appointment</a></li>
+        <li><a href="#contact" class="hover:text-[#A8861B] transition-colors">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="serif text-lg font-semibold gold">Services</h4>
+      <div class="w-10 h-px bg-[#C9A227] mt-2 mb-5"></div>
+      <ul class="space-y-3 text-sm text-[#666]">
+        <li><a href="#services" class="hover:text-[#A8861B] transition-colors">Haircut &amp; Hair Styling</a></li>
+        <li><a href="#services" class="hover:text-[#A8861B] transition-colors">Hair Spa &amp; Treatment</a></li>
+        <li><a href="#services" class="hover:text-[#A8861B] transition-colors">Facial</a></li>
+        <li><a href="#services" class="hover:text-[#A8861B] transition-colors">Makeup &amp; Bridal Makeup</a></li>
+        <li><a href="#services" class="hover:text-[#A8861B] transition-colors">Manicure &amp; Pedicure</a></li>
+        <li><a href="#services" class="hover:text-[#A8861B] transition-colors">Beauty Treatments</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="serif text-lg font-semibold gold">Contact Information</h4>
+      <div class="w-10 h-px bg-[#C9A227] mt-2 mb-5"></div>
+      <ul class="space-y-4 text-sm text-[#666] font-light">
+        <li class="flex gap-3"><svg class="flex-shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Gulmohar Residency, Plot No. 1, New Azad Nagar, near Anandeshwar Construction, Kalyanpur, Kanpur, UP – 208017</span></li>
+        <li class="flex gap-3"><svg class="flex-shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+919336051388" class="hover:text-[#A8861B] font-medium">093360 51388</a></li>
+        <li class="flex gap-3"><svg class="flex-shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Mon – Sun · 10 AM – 8 PM</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-[#C9A227]/20">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-[#777]">
+      <div>Copyright © <span id="year"></span> <span class="gold font-medium">Royal Touch Salon</span>. All rights reserved.</div>
+      <div class="flex items-center gap-2"><span class="w-6 h-px bg-[#C9A227]"></span>Crafted with elegance in Kanpur<span class="w-6 h-px bg-[#C9A227]"></span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating buttons -->
+<a href="https://wa.me/919336051388?text=Hello%20Royal%20Touch%20Salon%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="wa-float gold-grad text-white" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+</a>
+<button id="toTop" class="w-12 h-12 rounded-full bg-white gold-border text-[#A8861B] shadow-lg flex items-center justify-center hover:bg-[#C9A227] hover:text-white" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- Lightbox -->
+<div id="lightbox" role="dialog" aria-label="Image preview">
+  <button id="lbClose" class="absolute top-5 right-5 text-white/90 hover:text-[#E8CC6A] text-4xl leading-none" aria-label="Close">&times;</button>
+  <img id="lbImg" src="" alt="Gallery preview">
+</div>
+<div id="toast" class="toast"></div>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Navbar scroll state + back to top
+  const nav = document.getElementById('nav'), toTop = document.getElementById('toTop');
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+    toTop.classList.toggle('show', window.scrollY > 500);
+  };
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  // Mobile menu
+  const burger = document.getElementById('burger'), mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => { burger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  document.querySelectorAll('.mob-link').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); mobileMenu.classList.remove('open'); }));
+
+  // Active nav link on scroll
+  const sections = ['home','about','services','gallery','contact'].map(id => document.getElementById(id));
+  const navLinks = document.querySelectorAll('.nav-link');
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  sections.forEach(s => s && spy.observe(s));
+
+  // Reveal on scroll
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // Service "Book Now" -> prefill form
+  document.querySelectorAll('.book-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const sel = document.getElementById('service');
+      sel.value = btn.dataset.service;
+      document.getElementById('appointment').scrollIntoView({behavior:'smooth'});
+      setTimeout(() => { sel.focus(); sel.style.boxShadow = '0 0 0 4px rgba(201,162,39,.3)'; setTimeout(()=> sel.style.boxShadow='', 1200); }, 700);
+    });
+  });
+
+  // Date min = today
+  const dateInput = document.getElementById('date');
+  dateInput.min = new Date().toISOString().split('T')[0];
+
+  // Toast
+  const toast = document.getElementById('toast');
+  function showToast(msg){ toast.textContent = msg; toast.classList.add('show'); setTimeout(()=> toast.classList.remove('show'), 3500); }
+
+  // Form -> WhatsApp
+  const form = document.getElementById('bookingForm');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.querySelectorAll(':invalid').forEach(el => { el.style.borderColor = '#A8861B'; el.style.boxShadow = '0 0 0 4px rgba(201,162,39,.25)'; setTimeout(()=>{el.style.borderColor='';el.style.boxShadow='';},2000); });
+      showToast('Please fill all required fields correctly.');
+      return;
+    }
+    const d = Object.fromEntries(new FormData(form).entries());
+    const dateStr = d.date ? new Date(d.date).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'}) : '';
+    const msg = `Hello Royal Touch Salon 👑\n\nI would like to book an appointment.\n\n*Name:* ${d.name}\n*Phone:* ${d.phone}\n*Service:* ${d.service}\n*Date:* ${dateStr}\n*Time:* ${d.time}\n*Message:* ${d.message || '-'}\n\nPlease confirm my booking. Thank you!`;
+    window.open('https://wa.me/919336051388?text=' + encodeURIComponent(msg), '_blank');
+    showToast('Redirecting to WhatsApp to confirm your appointment ✨');
+    form.reset();
+  });
+
+  // Live-update WhatsApp booking link with form values
+  const waBook = document.getElementById('waBook');
+  form.addEventListener('input', () => {
+    const d = Object.fromEntries(new FormData(form).entries());
+    let msg = 'Hello Royal Touch Salon, I would like to book an appointment.';
+    if (d.name || d.service) msg += `\nName: ${d.name||'-'}\nService: ${d.service||'-'}\nDate: ${d.date||'-'} ${d.time||''}`;
+    waBook.href = 'https://wa.me/919336051388?text=' + encodeURIComponent(msg);
+  });
+
+  // Lightbox
+  const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg');
+  document.querySelectorAll('.g-item').forEach(item => item.addEventListener('click', () => {
+    lbImg.src = item.dataset.full; lb.classList.add('open'); document.body.style.overflow = 'hidden';
+  }));
+  const closeLb = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+  // Image fallback: soft gold placeholder if any image fails
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', () => {
+      img.style.background = 'linear-gradient(135deg,#FBF6E6,#E8CC6A)';
+      img.removeAttribute('src');
+    });
+  });
+</script>
+</body>
+</html>
